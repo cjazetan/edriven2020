@@ -4,50 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SA-2021</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>SA 2021</title>
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
 </head>
-<body>
-    <div style="display: flex; justify-content: space-between; background-color: rgb(157, 115, 255); height: 70px;">
-        <div style="display: flex;">
-          <i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 50px; margin-left: 20px; margin-top: 10px;"></i>
-            <h3 style="margin-top: 15px; margin-left: 15px;">Jaze</h3>
-        </div>
-        <div style="margin-right: 20px; font-size: 20px; margin-top: 18px; margin-right: 30px;">
-          Contact <i class="fa fa-phone-square" aria-hidden="true" style="margin-left: 10px;"></i>
-        </div>
+<body style="background-color: white">
+  <div style="display: flex; justify-content: space-between; background-color: rgb(157, 115, 255); height: 70px;">
+    <div style="display: flex;">
+        <h3 style="margin-top: 15px; margin-left: 15px;">Jaze</h3>
     </div>
+    <div style="margin-right: 20px; font-size: 20px; margin-top: 18px; margin-right: 30px;">
+      Contact <i class="fa fa-phone" aria-hidden="true" style="margin-left: 10px;"></i>
+    </div>
+  </div>
     <div class="container mt-5">
-        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#newCustomer">
-            New +
-          </button>
+      <button type="button" class="btn btn-primary mb-2" style="float: right;" data-bs-toggle="modal" data-bs-target="#newCustomer" style="background-color:grey";>New +</button>
 
-          <div class="modal fade" id="newCustomer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="newCustomerLabel" aria-hidden="true">
+          <div class="modal fade" id="newCustomer" data-bs-backdrop="static" style="padding-right: 500px; padding-top: 200px;" data-bs-keyboard="false" tabindex="-1" aria-labelledby="newCustomerLabel" aria-hidden="true">
             <div class="modal-dialog">
-              <div class="modal-content">
+              <div class="modal-content" style="width: 1000px; background-color: white">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="newCustomerLabel">New Order</h5>
+                  <h5 class="modal-title" id="newCustomerLabel" style="color: white;">New Order</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <form action="">
-                      <input type="text" class="form-control" placeholder="OR Number" style="width: 50%;" id="ORNumber">
-                      <input type="text" class="form-control" placeholder="Customer Name" id="customerName">            
+                      <input type="text" class="form-control" style="padding-left: 5px;" placeholder="OR Number" style="width: 20%;" id="ORNumber">
+                      <input type="text" class="form-control" style="padding-left: 5px;" placeholder="Customer Name (must have a First Name and Last Name)" id="customerName" style="width: 70%;">            
                   </form>
                 </div>
                 <div class="modal-body">
                     <hr style="margin-top : 0;">
                   <form action="">
-                      <h3>Items</h3>
+                      <h3 class="itemTxt">Items</h3>
                       <div class="row">
                           <div class="col-3">
                             <select name="item1" id="item1" style="height: 100%;" disabled>
-                              <option value="" selected disabled> </option>
-                                <option value="Plane">Plane</option>
-                                <option value="Helicopter">Helicopter</option>
-                                <option value="Car">Car</option>
-                                <option value="Bike">Bike</option>
+                                <option value="" selected disabled> </option>
                             </select>
                           </div>
                           <div class="col-3">
@@ -63,11 +58,8 @@
                       <div class="row">
                           <div class="col-3">
                             <select name="item2" id="item2" style="height: 100%;" disabled>
-                              <option value="" selected disabled> </option>
-                              <option value="Plane">Plane</option>
-                              <option value="Helicopter">Helicopter</option>
-                              <option value="Car">Car</option>
-                              <option value="Bike">Bike</option>
+                                <option value="" selected disabled> </option>
+                             
                             </select>
                           </div>
                           <div class="col-3">
@@ -83,10 +75,7 @@
                       <div class="row">
                           <div class="col-3">
                             <select name="item3" id="item3" style="height: 100%;" disabled>
-                              <option value="Plane">Plane</option>
-                              <option value="Helicopter">Helicopter</option>
-                              <option value="Car">Car</option>
-                              <option value="Bike">Bike</option>
+                                <option value="" selected disabled> </option>
                             </select>
                           </div>
                           <div class="col-3">
@@ -103,10 +92,6 @@
                           <div class="col-3">
                             <select name="item4" id="item4" style="height: 100%;" disabled>
                                 <option value="" selected disabled> </option>
-                                <option value="Plane">Plane</option>
-                                <option value="Helicopter">Helicopter</option>
-                                <option value="Car">Car</option>
-                                <option value="Bike">Bike</option>
                             </select>
                           </div>
                           <div class="col-3">
@@ -122,131 +107,50 @@
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-success" id="save" disabled data-bs-dismiss="modal">Save</button>
+                  <button type="button" class="btn btn-success" id="save" style="background-color: #0b5ed7; font-weight: bold; " disabled data-bs-dismiss="modal">Save changes</button>
                 </div>
               </div>
             </div>
           </div>
 
-    <table class="table table-striped" id="displayTable">
-              <tr class="text-center table-dark">
-                  <th scope="row">#</th>
-                  <th scope="row">Order #</th>
-                  <th scope="row">Customer Name</th>
-                  <th scope="row">Total</th>
-                  <th scope="row">Actions</th>
+    <table class="table table" id="displayTable" style="background-color: gray; color: white;">
+              <tr class="tableItems" style="color: white; background-color: #2a92df;" >
+                  <th scope="row" class="text-center">#</th>
+                  <th scope="row" class="text-center">Order #</th>
+                  <th scope="row" class="text-center">Customer Name</th>
+                  <th scope="row" class="text-center">Total</th>
+                  <th scope="row" class="text-center">Actions</th>
               </tr>
           </table>
-
           
-
-
-          <div class="modal fade" id="viewItem" tabindex="-1" aria-labelledby="viewItemLabel" aria-hidden="true">
+          <div class="modal fade" id="viewItem" tabindex="-1" aria-labelledby="viewItemLabel" aria-hidden="true" style="padding-right: 500px;">
             <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="viewItemLabel">View Order</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form action="">
-                        <input type="text" class="form-control" placeholder="OR Number" style="width: 50%;" id="ORNumberView" disabled>
-                        <input type="text" class="form-control" placeholder="Customer Name" id="customerNameView" disabled>            
-                    </form>
-                  </div>
-                  <div class="modal-body">
-                      <hr style="margin-top : 0;">
-                    <form action="">
-                        <h3>Items</h3>
-                        <div class="row">
-                            <div class="col-3">
-                              <select name="item1" id="item1View" style="height: 100%;" disabled>
-                                <option value="" selected disabled> </option>
-                                <option value="Plane">Plane</option>
-                                <option value="Helicopter">Helicopter</option>
-                                <option value="Car">Car</option>
-                                <option value="Bike">Bike</option>
-                              </select>
-                            </div>
-                            <div class="col-3">
-                              <input type="text" class="form-control" placeholder="Price" id="price1View" disabled>
-                            </div>
-                            <div class="col-3">
-                              <input type="number" min="0" class="form-control" placeholder="Qty" id="qty1View" disabled>
-                            </div>
-                            <div class="col-3">
-                              <input type="text" class="form-control" placeholder="Subtotal" id="subtotal1View" disabled>
-                            </div>
-                        </div>       
-                        <div class="row">
-                            <div class="col-3">
-                              <select name="item2" id="item2View" style="height: 100%;" disabled>
-                                <option value="" selected disabled> </option>
-                                <option value="Plane">Plane</option>
-                                <option value="Helicopter">Helicopter</option>
-                                <option value="Car">Car</option>
-                                <option value="Bike">Bike</option>
-                              </select>
-                            </div>
-                            <div class="col-3">
-                              <input type="text" class="form-control" placeholder="Price" id="price2View" disabled>
-                            </div>
-                            <div class="col-3">
-                              <input type="number" min="0" class="form-control" placeholder="Qty" id="qty2View" disabled>
-                            </div>
-                            <div class="col-3">
-                              <input type="text" class="form-control" placeholder="Subtotal" id="subtotal2View" disabled>
-                            </div>
-                        </div>       
-                        <div class="row">
-                            <div class="col-3">
-                              <select name="item3" id="item3View" style="height: 100%;" disabled>
-                                <option value="" selected disabled> </option>
-                                <option value="Plane">Plane</option>
-                                <option value="Helicopter">Helicopter</option>
-                                <option value="Car">Car</option>
-                                <option value="Bike">Bike</option>
-                              </select>
-                            </div>
-                            <div class="col-3">
-                              <input type="text" class="form-control" placeholder="Price" id="price3View" disabled>
-                            </div>
-                            <div class="col-3">
-                              <input type="number" min="0" class="form-control" placeholder="Qty" id="qty3View" disabled>
-                            </div>
-                            <div class="col-3">
-                              <input type="text" class="form-control" placeholder="Subtotal" id="subtotal3View" disabled >
-                            </div>
-                        </div>       
-                        <div class="row">
-                            <div class="col-3">
-                              <select name="item4View" id="item4" style="height: 100%;" disabled>
-                                <option value="" selected disabled> </option>
-                                <option value="Plane">Plane</option>
-                                <option value="Helicopter">Helicopter</option>
-                                <option value="Car">Car</option>
-                                <option value="Bike">Bike</option>
-                              </select>
-                            </div>
-                            <div class="col-3">
-                              <input type="text" class="form-control" placeholder="Price" id="price4View" disabled>
-                            </div>
-                            <div class="col-3">
-                              <input type="number" min="0" class="form-control" placeholder="Qty" id="qty4View" disabled>
-                            </div>
-                            <div class="col-3">
-                              <input type="text" class="form-control" placeholder="Subtotal" id="subtotal4View" disabled>
-                            </div>
-                        </div>       
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" style="border: 1px solid black; width: 80px;" class="btn btn-default" id="exit" data-bs-dismiss="modal">Exit</button>
-                  </div>
+              <div class="modal-content" style="width: 1000px; background-color: #232123">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="viewItemLabel" style="color: white;">View Order</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="">
+                    <input type="text" class="form-control" placeholder="OR Number" style="width: 100%;" id="ORNumberView" disabled>
+                    <input type="text" class="form-control" placeholder="Customer Name" id="customerNameView" disabled>            
+                  </form>                  
+                </div>
+
+          <div class="modal-body">
+            <hr>
+              <h3 style="color: white;">Items</h3>
+              <div class="container">
+                <div class="row" id="viewItemBody" style="width: 100%; justify-content: space-around; align-items: center; display: flex;">
+                                      
                 </div>
               </div>
+              <br>
+              <br>
           </div>
-
+        </div>
+      </div>
+    </div>
     </div>
 
     <script src="/js/bootstrap.bundle.min.js"></script>

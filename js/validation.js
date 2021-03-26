@@ -5,6 +5,7 @@ var item1 = document.getElementById('item1')
 var item2 = document.getElementById('item2')
 var item3 = document.getElementById('item3')
 var item4 = document.getElementById('item4')
+var itemList = [item1, item2, item3, item4]
 var price1 = document.getElementById('price1')
 var price2 = document.getElementById('price2')
 var price3 = document.getElementById('price3')
@@ -36,12 +37,44 @@ var a = [ORNumber,
     subtotal2,
     subtotal3,
     subtotal4]
-newCustomer.addEventListener('show.bs.modal', function(){
+newCustomer.addEventListener('show.bs.modal', function(){ //TRIGGER UPON MODAL DISPLAY
     for(var i = 0; i < a.length; i++){
         a[i].value = ''
+        if (i >= 2){
+            a[i].disabled = true
+        }
     }
+    
 })
-newCustomer.addEventListener('change', function(){ 
+
+const request = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian'
+var response 
+fetch (request)
+.then((res) => {
+    let converted = res.json()
+    converted
+    .then((data) => {      
+        response = data
+        for (var i = 0; i < itemList.length; i++){
+            for (var ii = 0; ii < data['meals'].length; ii++){
+                var option = document.createElement("option")
+                var optionTextNode = document.createTextNode(data['meals'][ii]['strMeal'])
+                option.value = data['meals'][ii]['strMeal']
+                option.appendChild(optionTextNode)
+                itemList[i].appendChild(option)
+            }
+        }
+    })
+    .catch((err) =>{
+        console.log(err) 
+    })
+})
+.catch((err) =>{
+    console.log(err)
+})
+
+
+newCustomer.addEventListener('change', function(){ //TRIGGER EVERY CONTENT CHANGE INSIDE MODAL
     if(ORNumber.value != '' && customerName.value != ''){
         item1.disabled = false
     }
@@ -49,7 +82,7 @@ newCustomer.addEventListener('change', function(){
         item1.disabled = true
     }
 })
-ORNumber.addEventListener('change', function(){ 
+ORNumber.addEventListener('change', function(){ //ORNUMBER VALIDATOR
     var data = JSON.parse(localStorage.getItem('customers'))
     if(data != null){
         for(var i = 0; i < data.length; i++){
@@ -60,7 +93,7 @@ ORNumber.addEventListener('change', function(){
         }
     }
 })
-customerName.addEventListener('change', function(){
+customerName.addEventListener('change', function(){ //CUSTOMERNAME VALIDATOR
     if(customerName.value.search(' ') != -1 && customerName.value.split(' ').length == 2 && (isNaN(customerName.value.split(' ')[0]) && isNaN(customerName.value.split(' ')[1]))){
         var checker = true
         var customerNameArray = customerName.value.split(' ')
@@ -100,7 +133,7 @@ customerName.addEventListener('change', function(){
     
 })
 
-item1.addEventListener('change', function(){ 
+item1.addEventListener('change', function(){ //ITEM1 VALIDATOR (REFER VARIABLE NAMING FOR OTHER ITEMS)
         price1.value = ''
         qty1.value = ''
         subtotal1.value = ''
@@ -131,7 +164,7 @@ item1.addEventListener('change', function(){
         price4.disabled = true
         qty4.disabled = true
 })
-price1.addEventListener('change', function(){
+price1.addEventListener('change', function(){ // PRICE1 VALIDATOR (REFER VARIABLE NAMING FOR OTHER PRICES)
     if(isNaN(price1.value)){
 
         price1.value = ''
@@ -232,7 +265,7 @@ price1.addEventListener('change', function(){
         }
     }
 })
-qty1.addEventListener('change', function(){
+qty1.addEventListener('change', function(){// QTY VALIDATOR (REFER VARIABLE NAMING FOR OTHER QTYS)
     if(price1.value <= '0'){
         qty1.value = ''
         subtotal1.value = ''
@@ -690,5 +723,3 @@ qty4.addEventListener('change', function(){
     }
     
 })
-
-
